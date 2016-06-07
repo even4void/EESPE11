@@ -1,0 +1,61 @@
+\documentclass[20pt,landscape,dvips]{foils} 
+% add 'draft' option above to exclude image when compiling
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}  
+\usepackage[french=guillemets*]{csquotes} 
+\MakeOuterQuote{"}
+\frenchspacing
+\DecimalMathComma
+
+\usepackage{latexsym}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{MnSymbol}
+\usepackage{url}
+\usepackage{graphicx}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{alltt}
+\usepackage{pifont,manfnt}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{subfigure}
+%\usepackage{enumerate}
+%\usepackage{colortbl}
+\usepackage{multirow,hhline}
+\usepackage{cclicenses}
+\setlength\parindent{0pt}
+\hypersetup{colorlinks=true,citecolor=black,urlcolor=black,linkcolor=black}
+\usepackage[style=verbose]{biblatex}
+\bibliography{refs}
+
+\newcommand{\highlight}[1]{\textcolor{Plum}{\bfseries #1}}
+\newcommand{\remark}[1]{%
+%\centerline{
+\begin{center}
+\framebox[.9\textwidth][t]{
+\ding{46} 
+\parbox[t]{.8\textwidth}{\small #1}}
+\end{center}}
+
+\DeclareMathOperator*{\inlaw}{\sim}
+\newcommand{\iid}{\inlaw_{\text{i.i.d.}}}
+%\newcommand{\iid}{\mathop{\mathrm{diag}}}
+\newcommand{\pobs}{p_{\text{obs}}}
+
+\reversemarginpar
+\def\mark{\marginpar{\dbend}}
+
+%\newcommand{\bm}[1]{\mbox{\boldmath{$#1$}}}
+\renewcommand{\abstractname}{Summary}
+\newcommand\bs{\char '134}   %  a backslash character for the \tt font
+%\renewcommand\refname{Additional Readings}
+
+% customize header/footer
+\rightheader{}
+% Note about the copyleft symbol:
+% I use a custom reversed and circled "c" char because \textcopyleft in
+% the textcomp package does not support sans serif font.
+% Also, "c" is shifted horizontally by 1ex to align with the circle.
+%\Restriction{\mbox{\raisebox{1.5ex}{\rotatebox{180}{\textcircled{c\kern.1ex}}} 2009}, \url{www.aliquote.org}}
+% now I use the CC licence...
+% \Restriction{\cc 2016 \VCRevision}
+\Restriction{\cc 2016 Module 11 EESPE}
