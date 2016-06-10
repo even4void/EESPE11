@@ -4,7 +4,7 @@ Ce site contient l'ensemble des documents utilisés dans le module 11 de l'écol
 
 ### Plan du cours
 
-1. Théorie classique des tests et analyse de fidélité de mesure : [diaporama](./src/slides/01-scores.pdf) ([version imprimable](./src/slides/01-scores-nup.pdf))
+1. Théorie classique des tests et analyse de fidélité de mesure : [diaporama 1](./src/slides/01a-scores.pdf) ([version imprimable](./src/slides/01a-scores-nup.pdf)), [diaporama 2](./src/slides/01b-reliability.pdf) ([version imprimable](./src/slides/01b-reliability-nup.pdf))
 2. Analyse multi-groupes et analyses factorielles : [diaporama 1](./src/slides/02a-validity.pdf) ([version imprimable](./src/slides/02a-validity-nup.pdf)), [diaporama 2](./src/slides/02b-cfa.pdf) ([version imprimable](./src/slides/02b-cfa-nup.pdf))
 3. Invariance de mesure et modèles de réponse à l'item : [diaporama 1](./src/slides/03a-cfa2.pdf) ([version imprimable](./src/slides/03a-cfa2.pdf)), [diaporama 2](./src/slides/03b-irt.pdf) ([version imprimable](./src/slides/03b-irt.pdf))
 4. Equations structurelles et modèles longitudinaux : [diaporama 1](./src/slides/04a-sem.pdf) ([version imprimable](./src/slides/04a-sem-nup.pdf)), [diaporama 2](./src/slides/04b-longitudinal.pdf) ([version imprimable](./src/slides/04b-longitudinal-nup.pdf))

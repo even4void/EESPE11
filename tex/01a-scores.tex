@@ -14,23 +14,13 @@
 
 
 %---------------------------------------------------------------Slide-
-\foilhead{Outline}
+\foilhead{Théorie classique des tests}
 \begin{itemize}
 \item Définition des mesures subjectives en santé, intérêt et enjeu.
 \item Approche psychométrique de la mesure.
 \item Propriétés d'un bon instrument de mesure.
 \item Modèles de mesure.
-\item Exemple dans le domaine de la qualité de vie.
 \end{itemize}
-
-
-%---------------------------------------------------------------Slide-
-\foilhead{Les mesures subjectives en santé}
-
-Mesure subjective recueillie chez le patient
-
-Patient reported outcome
-
 
 %---------------------------------------------------------------Slide-
 \foilhead{}
@@ -94,17 +84,105 @@ choix d'un modèle statistique
   \end{tabular}
 \end{center}
 
+% FIXME: rework this section
+
+%---------------------------------------------------------------Slide-
+\foilhead{Théorie classique des tests (TCT)}
+
+Encore appelée \enquote{théorie du score vrai}, cette approche permet de
+formaliser la construction d'un score permettant de caractériser un individu par
+rapport à une échelle de mesure et de quantifier les sources potentielles de
+variabilité ou d'erreur.
+
+Le \textcolor{CornflowerBlue}{score vrai} qui est assigné à un individu à partir
+de ses réponses à un instrument de mesure standardisé est ainsi envisagé comme
+une combinaison du \textcolor{Apricot}{score observé} (à un moment donné et dans
+des conditions spécifiques) et d'une \textcolor{Thistle}{erreur de mesure} :
+
+\[
+\textcolor{CornflowerBlue}{S_i} = \textcolor{Apricot}{O_i} + \textcolor{Thistle}{\varepsilon_i},\quad i=1,\dots,n
+\]
+
+
+%---------------------------------------------------------------Slide-
+\foilhead{Comment construire $S$}
+
+
+%---------------------------------------------------------------Slide-
+\foilhead{Que trouve-ton dans $\varepsilon$}
+
+L'erreur de mesure peut se décomposer en deux sources distinctes :
+\begin{enumerate}
+\item erreur systématique (ou biais), à éliminer au maximum dans la mesure du
+  possible ; 
+\item erreur aléatoire, propre à la variabilité intrinsèque de l'instrument de
+  mesure. 
+\end{enumerate}
+
+Borsboom discute extensivement l'intérêt et les limitations d'une telle approche
+pour la construction de scores, notamment la définition circulaire de la TCT \autocite{Borsboom2006,Borsboom2005}.
+
+% %---------------------------------------------------------------Slide-
+% \foilhead{Type de tests}
+
+% On parle de \highlight{tests congénériquement équivalents} lorsque les tests
+% peuvent être construits à partir d'un modèle unifactoriel et d'une erreur
+% résiduelle. 
+
+% \begin{itemize}
+% \item Deux tests sont dits \highlight{parallèles} lorsque les charges
+%   associées au modèle factoriel sont égales ($\lambda_1=\lambda_2$).
+% \item Deux tests sont dits \highlight{tau-équivalents} lorsque les charges
+%   factorielles sont égales mais que les erreurs diffèrent.
+% \end{itemize}
+
+% \vspace*{2em}
+% \centerline{\includegraphics[scale=1]{figs/parallel_test.eps}}
+
+% %---------------------------------------------------------------Slide-
+% \foilhead{}
+
+% Considérons les hypothèses suivantes :
+% \begin{itemize}
+% 	\item[($a_1$)] $\tau$-equivalence, $\tau_i=\tau_j$
+% 	\item[($a_2$)] essential $\tau$-equivalence, $\tau_i = \tau_j + \lambda_{ij},\quad	\lambda_{ij} \in \mathbb{R}$
+% 	\item[($a_3$)] $\tau$-congenerity, $\tau_i = \lambda_{ij0} + \lambda_{ij1}\tau_j,\quad	\lambda_{ij0}, \lambda_{ij1} \in  \mathbb{R}, \lambda_{ij1} > 0$
+% \end{itemize}
+% \begin{minipage}{0.6\textwidth}
+% \begin{itemize}
+% 	\item[($b$)] uncorrelated errors, $\text{cov}(\varepsilon_i,\varepsilon_j)=0, \forall i\neq j$
+% 	\item[($c$)] equal error variances, $\mathbb{V}(\varepsilon_i)=\mathbb{V}(\varepsilon_j)$
+% \end{itemize}
+% \end{minipage}\hfill
+% \begin{minipage}{0.35\textwidth}
+% \centerline{\includegraphics[scale=1]{figs/tau.eps}}
+% \end{minipage}
+
+
+%---------------------------------------------------------------Slide-
+\foilhead{Type d'items}
+
+\begin{itemize}
+\item \highlight{item dichotomique} (variable binaire) : deux options de réponse
+  ou plusieurs options de réponse mais une seule réponse correcte (p.ex., QCM) ;
+\item \highlight{item polytomique} (variable catgéorielle ordinale) : options ou
+  catégories de réponse naturellement ordonnées (p.ex., échelle de Likert)
+\item score numérique (standardisé ou non) : application d'un algorithme pour
+  dériver un score de résumé
+\item choix préférentiels : choix ordonnés de réponses parmi un ensemble
+  d'options de réponse
+\end{itemize}
 
 %---------------------------------------------------------------Slide-
 \foilhead{Illustration}
 
 301 enfants de deux écoles auxquels on a administré 26 tests permettant d'évaluer les compétences suivantes : \textcolor{CornflowerBlue}{spatiales}, verbales, vitesse de raisonnement, mémoire, mathématiques.
 
-\begin{quotation}
+\begin{quote}
   Holzinger, K. J. and Swineford, F. A. \emph{A study in factor analysis: The stability
   of a bi-factor solution}. Supplementary Education Monographs, 48. University of
   Chicago, 1939.  
-\end{quotation}
+\end{quote}
 
 %---------------------------------------------------------------Slide-
 \foilhead{Illustration}
@@ -165,6 +243,9 @@ C_i=\sum_{j=1}^pw_{ij}\textcolor{Apricot}{x_j}.
 Les charges $w_{ij}$ représentent la contribution de chaque variable dans la
 composante $C_i$. Les valeurs propres représentent la part de variance expliquée
 par chaque composante, et les vecteurs propres leur direction dans l'espace.
+
+L'ACP constitue une approche préliminaire pour vérifier l'unidimensionnalité
+d'un instrument de mesure.
 
 % ---------------------------------------------------------------Slide-
 \foilhead{Application pour l'échelle spatiale}
