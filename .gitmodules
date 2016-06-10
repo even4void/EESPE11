@@ -1,0 +1,3 @@
+[submodule "wiki"]
+	path = wiki
+	url = https://chlalanne@bitbucket.org/chlalanne/eespe11.git/wiki
