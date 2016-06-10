@@ -1,3 +1,4 @@
+% Time-stamp: <2016-06-10 12:57:54 chl>
 \input{settings}
 
 \title{Méthodes psychométriques en qualité de vie} 
@@ -18,7 +19,7 @@
 \foilhead{Objectifs de l'atelier}
 
 \begin{itemize}
-\item Vue d'ensemble des techniques de développement et de validation de
+\item Vue d'ensemble des techniques de développement, validation et analyse de
   questionnaires et de mesures patients ;
 \item Outils statistiques de base : (1) théorie classique des tests et analyse
   de fidélité de mesure, (2) analyses factorielles, (3) modèles de réponse à
@@ -26,28 +27,50 @@
 \item Initiation au logiciel R pour les analyses psychométriques.
 \end{itemize}
 
+Les applications portent sur des domaines variés, incluant la psychologie, la
+psychiatrie, ou la mesure de la qualité de vie dans les maladies chroniques.
+
+%---------------------------------------------------------------Slide-
+\foilhead{}
+
+{\centering \includegraphics[width=.7\textwidth]{update.eps}\par}
+
 %---------------------------------------------------------------Slide-
 \foilhead{Logiciel R}
 
 Le logiciel R peut être installé à partir du site CRAN :\newline
 {\centering \url{http://cran.r-project.org}\par} 
 
-Il est conseillé d'installer RStudio (\url{http://www.rstudio.com}), qui
-facilite grandement l'interaction avec R.
-
 Il sera nécessaire d'installer les packages additionnels suivants :
 \texttt{ggplot2}, \texttt{FactoMineR}, \texttt{psych}, \texttt{lavaan},
-\texttt{ltm}, \texttt{eRm}, \texttt{semTools}, \texttt{semPlot}.
+\texttt{ltm}, \texttt{eRm}, \texttt{semTools}, \texttt{semPlot}. D'autres
+packages seront installés automatiquement par R, en fonction des dépendances de
+chacun de ces packages.
+
+Il\mark{} est conseillé d'installer RStudio (\url{http://www.rstudio.com}), qui
+facilite grandement l'interaction avec R. 
+
+\begin{tabular}{ccc}
+  \includegraphics[width=.3\textwidth]{figs/rstudio-IDE-cheatsheet.eps} &
+  \includegraphics[width=.3\textwidth]{figs/data-wrangling-cheatsheet.eps} &
+  \includegraphics[width=.3\textwidth]{figs/ggplot2-cheatsheet-21.eps}
+\end{tabular}
+
+
 
 
 %---------------------------------------------------------------Slide-
 \foilhead{Organisation}
 
 \begin{itemize}
-\item 2h théorie
-\item 1h pratique
+\item 2h théorie/discussion, 1 thème par session
+\item 1h pratique, application avec le logiciel R
 \end{itemize}
 
+Tous les documents (supports de formation, scripts R, fichiers de données, notes
+diverses) sont accessibles à l'adresse suivante :\newline 
+
+{\centering \url{https://bitbucket.org/chlalanne/eespe11}\par}
 
 %---------------------------------------------------------------Slide-
 \foilhead{Ouvrages recommendés}
@@ -55,7 +78,8 @@ Il sera nécessaire d'installer les packages additionnels suivants :
 \begin{enumerate}
 \item McDonald, R.P. (1999). \emph{Test theory: A unified treatment}. Mahwah,
   NJ: Lawrence Erlbaum.
-\item Handbook of Statistics
+\item Rao, C.R and Sinharay, S. (eds.) (2006). \emph{Handbook of Statistics,
+    volume 26: Psychometrics}. North Holland.
 \item Raykov, T. and Marcoulides, G.A. (2011). \emph{Introduction to
     Psychometric Theory}. Routledge, Taylor \& Francis Group.$^\dagger$
 \item Bartolucci, F., Bacci, S., and Gnaldi, M. (2016). \emph{Statistical Analysis of
@@ -79,12 +103,9 @@ Il sera nécessaire d'installer les packages additionnels suivants :
 
 {\small $^\star$ R, $^\dagger$ Mplus, $^\ddagger$ Stata ($>12$).}
 
-% ---------------------------------------------------------------Slide-
-\foilhead{}
 
-Fichier de données et scripts R disponibles à l'adresse suivante :\newline
-{\centering \url{https://bitbucket.org/chlalanne/eespe11}\par}
-\vfill
+{\centering \includegraphics[width=.8\textwidth]{bitbucket.eps}\par}
+
 
 \raggedleft \scriptsize -- Typeset with \FoilTeX\ (version 2), Revision \VCRevision
 
