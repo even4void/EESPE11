@@ -99,13 +99,27 @@ de ses réponses à un instrument de mesure standardisé est ainsi envisagé com
 une combinaison du \textcolor{Apricot}{score observé} (à un moment donné et dans
 des conditions spécifiques) et d'une \textcolor{Thistle}{erreur de mesure} :
 
+
+
+%---------------------------------------------------------------Slide-
+\foilhead{Modèle de mesure}
+
+Pour un individu $i$ évalué sur une seule occasion, son score $x_i$ peut être
+exprimé comme suit : 
 \[
-\textcolor{CornflowerBlue}{S_i} = \textcolor{Apricot}{O_i} + \textcolor{Thistle}{\varepsilon_i},\quad i=1,\dots,n
+\textcolor{CornflowerBlue}{x_i} = \textcolor{Apricot}{\tau_i} +
+\textcolor{Thistle}{\varepsilon_i}\, (i=1,\dots,n),\quad \varepsilon_i\sim\mathcal{N}(0;\sigma_e^2),
+\]
+d'où l'on en déduit naturellemnt que $\mathbb{E}(x)=\tau$.
+
+Si l'on suppose que $T$ et $E$ sont indépendants, on a également
+\[
+\mathbb{V}(X) = \mathbb{V}(T)+\mathbb{V}(E)
 \]
 
 
 %---------------------------------------------------------------Slide-
-\foilhead{Comment construire $S$}
+\foilhead{Comment construire $X$}
 
 
 %---------------------------------------------------------------Slide-

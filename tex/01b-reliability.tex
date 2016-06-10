@@ -69,6 +69,107 @@ mesuré chez l'individu.
 % ---------------------------------------------------------------Slide-
 \foilhead{}
 
+\begin{quote}
+It is important to remember that a test is not reliable or
+unreliable. Reliability is a property of the scores on a test for a
+particular population of examinees (Feldt~\& Brennan, 1989). Thus,
+authors should provide reliability coefficients of the scores for the
+data being analyzed even when the focus of their research is not
+psychometric.
+
+\raggedleft Wilkinson \& APA Task Force\autocite{Wilkinson1999}
+\end{quote}
+
+
+%---------------------------------------------------------------Slide-
+\foilhead{Modèle de mesure}
+\hfill $\triangleright$ 01a-scores.pdf
+
+Pour un individu $i$ évalué sur une seule occasion, son score $x_i$ peut être
+exprimé comme suit : 
+\[
+\textcolor{CornflowerBlue}{x_i} = \textcolor{Apricot}{\tau_i} +
+\textcolor{Thistle}{\varepsilon_i}\,\quad \varepsilon_i\sim\mathcal{N}(0;\sigma_e^2),
+\]
+d'où l'on en déduit naturellement que $\mathbb{E}(X)=T$ (par construction).
+
+Si l'on suppose que $T$ et $E$ sont indépendants, on a également
+\[
+\mathbb{V}(X) = \mathbb{V}(T)+\mathbb{V}(E)
+\]
+
+% ---------------------------------------------------------------Slide-
+\foilhead{}
+On peut définir le \highlight{coefficient de fidélité} de la manière suivante :
+\begin{eqnarray}\label{eq:rx}
+  R_X & = & \frac{\mathbb{V}(T)}{\mathbb{V}(X)}\nonumber\\
+      & = & \frac{\mathbb{V}(T)}{\mathbb{V}(T)+\mathbb{V}(E)}.
+\end{eqnarray}
+
+Il s'agit d'une variable aléatoire donc ce n'est pas une propriété fixe d'un
+instrument de mesure. La racine carré de ce coefficient est appelée
+\highlight{erreur standard de mesure} (SEM).
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Extension simple de ce modèle de mesure}
+Supposons que les évaluations ne dépendent pas seulement du score vrai des
+individus mais également de l'évaluateur (les effets étant supposés
+indépendants). On a donc :
+\[
+\mathbb{V}(X) = \mathbb{V}(T)+\mathbb{V}(E).
+\]
+Si tous les sujets sont évalués par le même évaluateur, $R_X$ se calcule tel que
+défini en~(\ref{eq:rx}). Si, au contraire, les individus sont évalués par des
+évaluateurs choisis aléatoirement , alors
+\begin{equation}\label{eq:rxprime}
+    R'_X=\frac{\mathbb{V}(T)}{\mathbb{V}(T)+\mathbb{V}(I)+\mathbb{V}(E)},
+\end{equation}
+et $R_X^{}>R'_X$.
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Le cas de deux instruments}
+Supposons que nous disposons d'une série de données appariées collectées à
+partir de deux instruments de mesure, $\mathcal{I}_X$ et $\mathcal{I}_Y$, pour
+lesquels les scores sont construits selon le même schéma :
+\begin{eqnarray*}
+	X & = & T_X+E_X\\
+	Y & = & T_Y+E_Y\\
+\end{eqnarray*}
+Quelle est la corrélation entre $X$ et $Y$ ?
+
+Les\mark{} deux séries de mesure sont des réalisations des variables alétoires
+$X$ et $Y$, mais la précision des instruments de mesure entre également en jeu.
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Corrélation atténuée}
+
+La corrélation (liénaire) entre $X$ et $Y$ est donnée par
+$\rho_{XY}=\frac{\text{cov}(T_X,T_Y)}{\sqrt{\mathbb{V}(T_X)\mathbb{V}(T_Y)}}$.
+Un bon estimateur peut être consrtuit comme suit :
+\begin{eqnarray}\label{eq:corr}
+	\hat\rho_{XY} & = & \frac{\text{cov}(X,Y)}{\sqrt{\mathbb{V}(X)\mathbb{V}(Y)}}\nonumber\\
+	              & = &
+                      \frac{\text{cov}(T_X+E_X,T_Y+E_Y)}{\sqrt{\mathbb{V}(T_X+E_X)\mathbb{V}(T_Y+E_Y)}}
+                  =\rho_{XY}\sqrt{R_XR_Y}
+\end{eqnarray}
+
+La corrélation entre les données observées est atténuée par la précision de
+chacun des instruments de mesure.
+
+% ---------------------------------------------------------------Slide-
+\foilhead{}
+Il en va de même dans le cas de la régression linéaire : si l'on souhaite
+prédire $Y$ à partir de $X$ à l'aide d'un modèle de régression simple,
+$\mathbb{E}(T_Y|T_X)=\beta_0+\beta_1T_X$, la pente serait estimée par
+$\beta_1=\text{cov}(T_X,T_Y)/\mathbb{V}(T_X)$. En tenant compte de la précision de
+la mesure $X$, $R_X$, on considèrera comme estimateur :
+\begin{eqnarray}\label{eq:slope}
+	\hat\beta_1 & = & \frac{\text{cov}(X,Y)}{\mathbb{V}(X)}\nonumber\\          
+              & = & \frac{R_X\text{cov}(T_X,T_Y)}{\mathbb{V}(T_X)}=R_X\beta_1
+\end{eqnarray}
+
+La pente de la droite de régression est atténuée (c.a.d. ramenée vers 0).
+
 % ---------------------------------------------------------------Slide-
 \foilhead{}
 
