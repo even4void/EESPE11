@@ -30,12 +30,13 @@ Une formulation alternative consiste à se demander quelles sont les sources
 potentielles de variation des scores, et donc comment les mesurer et quel est
 leur impact lorsque l'on infère des résultats observés sur un échantillon à la
 population ?
+
 Des mesures collectées plusieurs fois à partir d'un même instrument peuvent
-survenir de plusieurs manière\autocite{Dunn2000} :
+survenir de plusieurs manières\autocite{Dunn2000} :
 \begin{itemize}
 \item évaluation répétée de plusieurs sujets par le même évaluateur ;
 \item évaluation alternative d'un même individu par plusieurs évaluateurs ;
-\item administration répétée d'un même questionnaire ou de formes parallèles ;
+\item administration répétée d'un même questionnaire ; 
 \item utilisation de différentes sous-échelles d'un même questionnaire.
 \end{itemize}
 
@@ -49,6 +50,12 @@ techniques :
 \item modèles d'équations structurelles ;
 \item modèles de réponse à l'item.
 \end{itemize}
+\medskip
+
+L'objectif des études de fidélité est de quantifier le degré de précision d'une
+mesure afin de justifier les qualités métrologiques de l'instrument de mesure
+(reproductibilité des scores, comparaisons inter-groupes, etc.). 
+
 
 % ---------------------------------------------------------------Slide-
 \foilhead{Fidélité de mesure $\neq$ significativité}
@@ -88,7 +95,7 @@ Pour un individu $i$ évalué sur une seule occasion, son score $x_i$ peut être
 exprimé comme suit : 
 \[
 \textcolor{CornflowerBlue}{x_i} = \textcolor{Apricot}{\tau_i} +
-\textcolor{Thistle}{\varepsilon_i}\,\quad \varepsilon_i\sim\mathcal{N}(0;\sigma_e^2),
+\textcolor{Thistle}{\varepsilon_i},\quad \varepsilon_i\sim\mathcal{N}(0;\sigma_e^2),
 \]
 d'où l'on en déduit naturellement que $\mathbb{E}(X)=T$ (\enquote{par construction}).
 
@@ -171,10 +178,10 @@ La pente de la droite de régression est atténuée (c.a.d. ramenée vers 0).
 \foilhead{Consistance interne d'un instrument}
 
 La consistance interne d'un questionnaire permet de résumer le degré
-d'homogénéité des scores aux items (variance partagée) en relation avec le score
-total.
+d'homogénéité des scores aux items (variance partagée avec le score
+total).
 
-La consistance interne est considérée comme une borne basse de la fidélité de
+La \highlight{consistance interne} est considérée comme une borne basse de la fidélité de
 mesure, et elle est souvent mesurée à l'aide du \highlight{coefficient alpha de
   Cronbach}, qui est une mesure dépendant de l'échantillon. Lorsque $\alpha =
 0,70$, l'erreur de mesure vaut environ 0,55 $\times$ l'écart-type du score
@@ -184,14 +191,17 @@ Un tel indicateur suppose l'absence de corrélation entre les erreurs de mesure,
 une contribution équivalente des items dans la détermination du score total, et
 l'unidimensionalité de l'instrument de mesure.
 
+L'\highlight{erreur de mesure} se calcule comme $\sigma_e =
+\sigma\sqrt{1-\alpha}$, où $\sigma^2$ désigne la variance des scores totaux.
+
 % ---------------------------------------------------------------Slide-
 \foilhead{Indice KR-20 et alpha de Cronbach}
 Dans le cas des items dichotomiques, une mesure de consistance est le
 coefficient de Kuder-Richardson (KR-20) \autocite{kuder37}:
 \begin{equation}
-\text{KR-20}=\frac{K}{K-1}\left[1-\frac{\sum_k p_kq_k}{\sigma_t^2}\right]
+\text{KR-20}=\frac{K}{K-1}\left[1-\frac{\sum_k p_kq_k}{\sigma^2}\right]
 \end{equation}
-où $K$ est le nombre d'items, $\sigma_t^2$ la variance des scores totaux, $p_k$
+où $K$ est le nombre d'items, $\sigma^2$ la variance des scores totaux, $p_k$
 et $q_k$ désignent les proportions d'individus avec un score à 1 ou 0 à l'item
 $k$. 
 
@@ -228,7 +238,7 @@ Alternatives au coefficient $\alpha$ :
 \item Guttman Lambda 6 (part de variance de chaque item expliquée par la
   régression de l'ensemble des autres items, ou plus exactement la variance des
   erreurs) ;
-\item Revelle beta, etc.
+\item Revelle beta, McDonald omega, Sijtma GLB, etc.\autocite{zinbarg05}
 \end{itemize}
 
 % ---------------------------------------------------------------Slide-
@@ -363,7 +373,7 @@ En effet, ils permettent
 \medskip
 
 Dans ce cas, on se rapproche des modèles en traits latents \autocite{uebersaxA},
-avec des hypothèses plus souples sur les distributions.
+avec des hypothèses spécifiques sur les distributions.
 
 % ---------------------------------------------------------------Slide-
 \foilhead{Cas de la corrélation tétrachorique}
@@ -433,7 +443,7 @@ Médiane $\pm$ IQR (figure de gauche).\\
 Les approches considérées comme les plus adéquates (scores plus élevés) sont
 associées à une plus grande variabilité entre juges même si la corrélation de
 rang (Spearman) entre la moyenne et l'écart-type n'est pas significative
-($\rho=-0.167,\, p=0.703$). 
+($\rho=-0,167,\, p=0,703$). 
 \end{minipage}
 
 %---------------------------------------------------------------Slide-
@@ -444,12 +454,12 @@ fixe) \ding{182}, un modèle à deux effets \ding{183}, et un modèle mixte
 incluant deux effets \ding{185}. 
 
 \begin{alltt}
-data(hays05)
+load("hays05.rda")
 require(lme4)
-summary(aov(score~approach, hays05)) \hfill\ding{182}
-summary(aov(score~rater+approach, hays05)) \hfill\ding{183}
-summary(aov(score~approach*rater, hays05)) \hfill\ding{184}
-summary(lmer(score~approach+(1|rater), hays05)) \hfill\ding{185}
+summary(aov(score ~ approach, hays05)) \hfill\ding{182}
+summary(aov(score ~ rater+approach, hays05)) \hfill\ding{183}
+summary(aov(score ~ approach*rater, hays05)) \hfill\ding{184}
+summary(lmer(score ~ approach + (1 | rater), hays05)) \hfill\ding{185}
 \end{alltt}
 
 Le modèle~\ding{183} est largement utilisé en pratique et permet d'estimer l'ICC
