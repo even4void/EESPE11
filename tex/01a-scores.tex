@@ -12,21 +12,28 @@
 \rightfooter{\quad\textsf{\thepage}}
 
 
+%---------------------------------------------------------------Slide-
+\foilhead{}
+
+\bigskip
+{\centering \includegraphics[width=\textwidth]{figs/pain.eps}\par}
+
 
 %---------------------------------------------------------------Slide-
 \foilhead{Théorie classique des tests}
 \begin{itemize}
 \item Définition des mesures subjectives en santé, intérêt et enjeu.
 \item Approche psychométrique de la mesure.
-\item Propriétés d'un bon instrument de mesure.
-\item Modèles de mesure.
+\item Propriétés d'un bon instrument de mesure (validité, fidélité de mesure).
+\item Modèles de mesure, modèles à variables latentes.
 \end{itemize}
 
-%---------------------------------------------------------------Slide-
-\foilhead{}
 
-\bigskip
-{\centering \includegraphics[width=\textwidth]{figs/pain.eps}\par}
+%---------------------------------------------------------------Slide-
+\foilhead{Taxonomie COSMIN\autocite{Mokkink2010}}
+
+{\centering \includegraphics[width=.5\textwidth]{figs/cosmin_taxonomy.eps}\par}
+
 
 %---------------------------------------------------------------Slide-
 \foilhead{Instruments et mesures}
@@ -63,6 +70,7 @@ nombres à des catégories\autocite{Stevens1946,DeBoeck2005}.
   the construct that was the original inspiration of the items.
 \end{itemize}
 
+
 %---------------------------------------------------------------Slide-
 \foilhead{Modèles à variables latentes}
 
@@ -87,6 +95,78 @@ choix d'un modèle statistique
 % FIXME: rework this section
 
 %---------------------------------------------------------------Slide-
+\foilhead{Des items aux échelles de mesure}
+
+Un \enquote{item} constitue l'unité de mesure fondamentale et il peut être
+considéré comme une évaluation critériée d'un construit théorique
+(\enquote{construct}) psychologique (fluence verbale, habileté cognitive,
+qualité de vie, traits de personnalité).
+
+L'aggrégation des réponses fournies par plusieurs individus à plusieurs items
+permet de construire une échelle de mesure, souvent confondue avec la dimension
+(construct) qu'elle est supposée refléter.
+
+En supposant que cette échelle soit bel et bien unidimensionnelle, il est alors
+possible d'assigner un score numérique aux patterns de réponse individuels et
+ainsi positionner l'individu sur un trait latent.
+
+%---------------------------------------------------------------Slide-
+\foilhead{Illustration}
+
+MOS 36-item version courte (1 =
+\enquote{all the time},\ldots, 6 = \enquote{none of the time})
+
+{\centering \includegraphics[width=.7\textwidth]{figs/mos_sf36.eps}\par}
+
+
+%---------------------------------------------------------------Slide-
+\foilhead{Type d'items}
+
+\begin{itemize}
+\item \highlight{item dichotomique} (variable binaire) : deux options de réponse
+  ou plusieurs options de réponse mais une seule réponse correcte (p.ex., QCM) ;
+\item \highlight{item polytomique} (variable catgéorielle ordinale) : options ou
+  catégories de réponse naturellement ordonnées (p.ex., échelle de Likert)
+\item score numérique (standardisé ou non) : application d'un algorithme pour
+  dériver un score de résumé
+\item choix préférentiels : choix ordonnés de réponses parmi un ensemble
+  d'options de réponse
+\end{itemize}
+
+%---------------------------------------------------------------Slide-
+\foilhead{Exemple d'échelles multidimensionnelles}
+
+\begin{itemize}
+\item Le questionnaire \highlight{HADS} est composé de deux dimensions ($2\times
+  7$ items) permettant d'explorer les symptôme s
+  anxio-dépressifs \autocite{Zigmond1983}.
+\item Le \highlight{NEOPI-R} est un inventaire de personnalité (240 ou 60 items)
+  basé sur le modèle en 5 facteurs (extraversion, agreeableness,
+  conscientiousness, neuroticism, and openness; 6 facettes chacun)
+  \autocite{McCrae1992}.
+\item Le questionnaire \highlight{MOS-HIV} évalue la qualité de vie spécifique
+  du VIH à l'aide de 35 items couvrant 10 dimensions suivantes\autocite{Wu1997a}.
+\end{itemize}
+
+
+%---------------------------------------------------------------Slide-
+\foilhead{Propriétés attendues}
+
+\begin{itemize}
+\item \highlight{unidimensionalité} : l'échelle de mesure mesure un seul
+  construct qui est supposé expliquer les réponses d'un individu aux items selon
+  sa position sur le trait latent ;
+\item \highlight{indépendance locale} : si le trait latent est maintenu à une
+  valeur constante, les réponses aux items sont indépendantes ;
+\item \highlight{invariance de mesure} : les réponses individuelles ne dépendent
+  pas de caratéristiques intrinsèques aux individus (p.ex., sexe, origine ethnique).
+\end{itemize}
+
+Les deux premières propriétés sont indispensables pour pouvoir attribuer un
+score à l'individu (et aux items) sur le trait latent, tandis que la troisième
+propriété permet des comparaisons inter-groupes valides.
+
+% ---------------------------------------------------------------Slide-
 \foilhead{Théorie classique des tests (TCT)}
 
 Encore appelée \enquote{théorie du score vrai}, cette approche permet de
@@ -94,10 +174,11 @@ formaliser la construction d'un score permettant de caractériser un individu pa
 rapport à une échelle de mesure et de quantifier les sources potentielles de
 variabilité ou d'erreur.
 
-Le \textcolor{CornflowerBlue}{score vrai} qui est assigné à un individu à partir
-de ses réponses à un instrument de mesure standardisé est ainsi envisagé comme
-une combinaison du \textcolor{Apricot}{score observé} (à un moment donné et dans
-des conditions spécifiques) et d'une \textcolor{Thistle}{erreur de mesure} :
+Le \textcolor{Apricot}{score} qui est assigné à un individu à partir de ses
+réponses à un instrument de mesure standardisé (à un moment donné et dans des
+conditions spécifiques) est ainsi envisagé comme une combinaison du
+\textcolor{CornflowerBlue}{score vrai} et d'une \textcolor{Thistle}{erreur de
+  mesure}.
 
 
 
@@ -110,17 +191,24 @@ exprimé comme suit :
 \textcolor{CornflowerBlue}{x_i} = \textcolor{Apricot}{\tau_i} +
 \textcolor{Thistle}{\varepsilon_i}\, (i=1,\dots,n),\quad \varepsilon_i\sim\mathcal{N}(0;\sigma_e^2),
 \]
-d'où l'on en déduit naturellemnt que $\mathbb{E}(x)=\tau$.
+d'où l'on en déduit naturellement que $\mathbb{E}(x)=\tau$.
 
 Si l'on suppose que $T$ et $E$ sont indépendants, on a également
 \[
-\mathbb{V}(X) = \mathbb{V}(T)+\mathbb{V}(E)
+\mathbb{V}(X) = \mathbb{V}(T)+\mathbb{V}(E).
 \]
-
 
 %---------------------------------------------------------------Slide-
 \foilhead{Comment construire $X$}
 
+Une façon simple de dériver un score résumant l'ensemble des réponses d'un
+individu à un instrument comportant plusieurs items consiste à aggréger (par
+sommation ou moyennage) l'ensemble des scores numériques associés à chaque item.
+
+L'aggrégation peut être simple (non pondérée) mais il est également possible de
+considérer une combinaison linéaire des scores aux items. Les poids de chaque
+score peuvent être simples (coefficients entiers de pondération) ou plus
+complexes (charges factorielles).
 
 %---------------------------------------------------------------Slide-
 \foilhead{Que trouve-ton dans $\varepsilon$}
@@ -135,6 +223,8 @@ L'erreur de mesure peut se décomposer en deux sources distinctes :
 
 Borsboom discute extensivement l'intérêt et les limitations d'une telle approche
 pour la construction de scores, notamment la définition circulaire de la TCT \autocite{Borsboom2006,Borsboom2005}.
+
+
 
 % %---------------------------------------------------------------Slide-
 % \foilhead{Type de tests}
@@ -173,19 +263,6 @@ pour la construction de scores, notamment la définition circulaire de la TCT \a
 % \end{minipage}
 
 
-%---------------------------------------------------------------Slide-
-\foilhead{Type d'items}
-
-\begin{itemize}
-\item \highlight{item dichotomique} (variable binaire) : deux options de réponse
-  ou plusieurs options de réponse mais une seule réponse correcte (p.ex., QCM) ;
-\item \highlight{item polytomique} (variable catgéorielle ordinale) : options ou
-  catégories de réponse naturellement ordonnées (p.ex., échelle de Likert)
-\item score numérique (standardisé ou non) : application d'un algorithme pour
-  dériver un score de résumé
-\item choix préférentiels : choix ordonnés de réponses parmi un ensemble
-  d'options de réponse
-\end{itemize}
 
 %---------------------------------------------------------------Slide-
 \foilhead{Illustration}
@@ -259,17 +336,17 @@ composante $C_i$. Les valeurs propres représentent la part de variance expliqu�
 par chaque composante, et les vecteurs propres leur direction dans l'espace.
 
 L'ACP constitue une approche préliminaire pour vérifier l'unidimensionnalité
-d'un instrument de mesure.
+d'une échelle de mesure.
 
 % ---------------------------------------------------------------Slide-
 \foilhead{Application pour l'échelle spatiale}
+
 
 \begin{alltt}
 library(FactoMineR)
 pca <- PCA(HS[,c("visual", "cubes", "paper")], 
            scale.unit = TRUE, graph = FALSE)  
 \end{alltt}
-
 \begin{alltt}\small
 > pca$eig
        eigenvalue percentage of variance cumulative percentage of variance
@@ -326,8 +403,28 @@ cor(HS[,c("spatial","PC1")])
 
 L'ACP peut être vue comme une méthode de réduction de dimension, de résumé
 graphique d'une matrice de corrélation, voire d'inférence multivariée (sous
-certaines hypothèses distributionnelles), mais dans tous les cas il suppose que
-les \textcolor{Apricot}{$X_j$} sont mesurés sans erreur.
+certaines hypothèses distributionnelles), mais dans tous les cas cette approche
+suppose que les variables \textcolor{Apricot}{$X_j$} sont mesurées sans erreur.
+
+Lorsque le nombe d'items est grand, l'ACP constitue une bonne approximation de
+l'analyse factorielle.
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Application}
+
+\begin{enumerate}
+\item Calculer la matrice de corrélation de Pearson et réaliser une ACP sur les
+  données \texttt{HolzingerSwineford1939} en considérant l'ensemble des
+  variables (\texttt{visual}, \ldots, \texttt{straight}).
+\item Calculer les scores factoriels pour chaque dimension définie \emph{a
+    priori} (3 variables/dimension) et calculer leur corrélation avec les scores
+  totaux non pondérés.
+\item Calculer les corrélations entre les sous-scores totaux et le score total
+  calculé en ignorant les dimensions (9 variables).
+\item Comparer les sous-scores totaux et factoriels entre les deux groupes de
+  participants définis par la variable \texttt{school}.
+\end{enumerate}
+
 
 % ---------------------------------------------------------------Slide-
 \foilhead{}
