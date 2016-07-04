@@ -35,6 +35,11 @@
   intended purpose \autocite{Fayers2000}.
 \end{quote}
 
+% ---------------------------------------------------------------Slide-
+\foilhead{Développement et validation d'un questionnaire}
+
+{\centering \includegraphics[width=.8\textwidth]{figs/testing.eps}\par}
+
 %---------------------------------------------------------------Slide-
 \foilhead{Taxonomie COSMIN\autocite{Mokkink2010}}
 
@@ -302,13 +307,13 @@ pour la construction de scores, notamment la définition circulaire de la TCT \a
 \end{quote}
 
 %---------------------------------------------------------------Slide-
-\foilhead{Illustration}
+\foilhead{}
 
 {\centering \fbox{\includegraphics[width=.9\textwidth]{figs/HS.eps}}\par}
 
 
 %---------------------------------------------------------------Slide-
-\foilhead{Illustration}
+\foilhead{Application avec R}
 
 \begin{alltt}
 data(HolzingerSwineford1939, package="lavaan") 
@@ -324,7 +329,7 @@ names(HS)[7:15] <- c("\textcolor{Apricot}{visual}", "\textcolor{Apricot}{cubes}"
 \textcolor{Apricot}{paper} = \textcolor{CornflowerBlue}{score (composite) spatial}\par}
 
 %---------------------------------------------------------------Slide-
-\foilhead{Illustration}
+\foilhead{}
 
 Calcul des scores composites :
 \begin{alltt}
@@ -338,12 +343,10 @@ colMeans(HS[,c("spatial","verbal","speed")])
 % ---------------------------------------------------------------Slide-
 \foilhead{}
 
-
 {\centering \includegraphics[width=.55\textwidth]{figs/fig-HS-ggpairs.eps}\par}
 
 % ---------------------------------------------------------------Slide-
 \foilhead{}
-
 
 {\centering \includegraphics[width=.55\textwidth]{figs/fig-HS-hist.eps}\par}
 
@@ -363,6 +366,14 @@ par chaque composante, et les vecteurs propres leur direction dans l'espace.
 
 L'ACP constitue une approche préliminaire pour vérifier l'unidimensionnalité
 d'une échelle de mesure.
+
+% ---------------------------------------------------------------Slide-
+\foilhead{}
+
+{\centering \includegraphics[width=.8\textwidth]{figs/fig-pca2.eps}\par}
+
+\vfill
+{\small Source : \url{http://mengnote.blogspot.fr/2013/05/an-intuitive-explanation-of-pca.html}}
 
 % ---------------------------------------------------------------Slide-
 \foilhead{Application pour l'échelle spatiale}
