@@ -455,7 +455,7 @@ incluant deux effets \ding{185}.
 
 \begin{alltt}
 load("hays05.rda")
-require(lme4)
+library(lme4)
 summary(aov(score ~ approach, hays05)) \hfill\ding{182}
 summary(aov(score ~ rater+approach, hays05)) \hfill\ding{183}
 summary(aov(score ~ approach*rater, hays05)) \hfill\ding{184}
