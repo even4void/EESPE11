@@ -66,7 +66,7 @@ combinaisons linéaires de facteurs\autocite[chap.~ 6]{revelle16} :
 
 \begin{alltt}
 library(psych)
-principal(HS[,c("visual","cubes", paper")], \textcolor{Apricot}{nfactors = 3}, 
+principal(HS[,c("visual","cubes", paper")], \highlight{nfactors = 3}, 
           rotate = "none")
 \end{alltt}
 \begin{alltt}\small
@@ -128,23 +128,191 @@ fa.parallel(d, fm = "pa", fa = "fa", main = "")
 % ---------------------------------------------------------------Slide-
 \foilhead{Solution factorielle à 1 facteur}
 
-{\centering \includegraphics[width=.7\textwidth]{figs/sol1.eps}\par}
+{\centering \includegraphics[width=.8\textwidth]{figs/sol1.eps}\par}
 
 % ---------------------------------------------------------------Slide-
 \foilhead{Solution factorielle à 2 facteurs}
 
-{\centering \includegraphics[width=.7\textwidth]{figs/sol2.eps}\par}
+{\centering \includegraphics[width=.8\textwidth]{figs/sol2.eps}\par}
 
 % ---------------------------------------------------------------Slide-
 \foilhead{Solution factorielle à 3 facteurs}
 
-{\centering \includegraphics[width=.7\textwidth]{figs/sol3.eps}\par}
+{\centering \includegraphics[width=.8\textwidth]{figs/sol3.eps}\par}
+
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Analyse exploratoire et confirmatoire (CFA)}
+
+La CFA revient à imposer une structure particulière, c.a.d. à contraindre certains
+paramètres du modèle, et à tester l'adéquation du modèle avec les données.
+
+{\centering \includegraphics[width=.4\textwidth]{figs/cfa.eps}\par}
+
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Utilisation de \texttt{lavaan}}
+Le package \texttt{lavaan}\autocite{rosseel12} dispose de 4 commandes essentielles :
+\texttt{lavaan}, \texttt{cfa}, \texttt{sem}, \texttt{growth}.
+
+Les commandes inclut entre autres des procédures d'estimation par intervalles
+(bootstrap), de simulation et de transfert de données/modèles avec
+Mplus\autocite{beaujean13,beaujean14}.
+
+{\centering \url{http://lavaan.ugent.be}\par}
+
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Modèle en traits corrélés}
+
+\begin{alltt}
+library(lavaan)
+library(semPlot)
+m <- 'Visual =~ visual + cubes + paper \hfill \ding{182}
+      Verbal =~ paragrap + sentence + wordm
+      Speed  =~ addition + counting + straight'
+r <- cfa(m, data = d) \hfill \ding{183}
+summary(r, fit.measures = TRUE) \hfill \ding{184}
+semPaths(r, whatLabels = "est") \hfill \ding{185}
+\end{alltt}
+\begin{alltt}\small
+> summary(r, fit.measures = TRUE)
+lavaan (0.5-20) converged normally after  35 iterations
+
+  Number of observations                           301
+
+  Estimator                                         ML
+  Minimum Function Test Statistic               85.306
+  Degrees of freedom                                24
+  P-value (Chi-square)                           0.000
+
+Model test baseline model:
+
+  Minimum Function Test Statistic              918.852
+  Degrees of freedom                                36
+  P-value                                        0.000
+
+User model versus baseline model:
+
+  Comparative Fit Index (CFI)                    0.931 \hfill \ding{182}
+  Tucker-Lewis Index (TLI)                       0.896
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -3737.745
+  Loglikelihood unrestricted model (H1)      -3695.092
+
+  Number of free parameters                         21
+  Akaike (AIC)                                7517.490
+  Bayesian (BIC)                              7595.339
+  Sample-size adjusted Bayesian (BIC)         7528.739
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.092 \hfill \ding{183}
+  90 Percent Confidence Interval          0.071  0.114
+  P-value RMSEA <= 0.05                          0.001
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.065 \hfill \ding{184}
+
+Parameter Estimates:
+
+  Information                                 Expected
+  Standard Errors                             Standard
+
+Latent Variables:
+                   Estimate  Std.Err  Z-value  P(>|z|)
+  Visual =~
+    visual            1.000  \hfill \ding{185}
+    cubes             0.554    0.100    5.554    0.000
+    paper             0.729    0.109    6.685    0.000
+  Verbal =~
+    paragrap          1.000
+    sentence          1.113    0.065   17.014    0.000
+    wordm             0.926    0.055   16.703    0.000
+  Speed =~
+    addition          1.000
+    counting          1.180    0.165    7.152    0.000
+    straight          1.082    0.151    7.155    0.000
+
+Covariances:
+                   Estimate  Std.Err  Z-value  P(>|z|)
+  Visual ~~
+    Verbal            0.408    0.074    5.552    0.000 \hfill \ding{186}
+    Speed             0.262    0.056    4.660    0.000
+  Verbal ~~
+    Speed             0.173    0.049    3.518    0.000
+
+Variances:
+                   Estimate  Std.Err  Z-value  P(>|z|)
+    visual            0.549    0.114    4.833    0.000
+    cubes             1.134    0.102   11.146    0.000
+    paper             0.844    0.091    9.317    0.000
+    paragrap          0.371    0.048    7.779    0.000
+    sentence          0.446    0.058    7.642    0.000
+    wordm             0.356    0.043    8.277    0.000
+    addition          0.799    0.081    9.823    0.000
+    counting          0.488    0.074    6.573    0.000
+    straight          0.566    0.071    8.003    0.000
+    Visual            0.809    0.145    5.564    0.000
+    Verbal            0.979    0.112    8.737    0.000
+    Speed             0.384    0.086    4.451    0.000
+\end{alltt}
+
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Modèle en traits corrélés (paramétrisation alternative)}
+
+\begin{alltt}
+r <- cfa(m, data = d, \highlight{std.lv = TRUE}) 
+\end{alltt}
+
+
+{\centering \includegraphics[width=.6\textwidth]{figs/m2.eps}\par}
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Modèle en traits orthogonaux}
+
+\begin{alltt}
+r <- cfa(m, data = d, \highlight{orthogonal = TRUE}) 
+\end{alltt}
+
+{\centering \includegraphics[width=.6\textwidth]{figs/m3.eps}\par}
 
 
 % ---------------------------------------------------------------Slide-
 \foilhead{Modèles de mesure en analyse factorielle}
 
 {\centering \fbox{\includegraphics[width=.55\textheight]{figs/models.eps}}\par}
+
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Modèles alternatifs pour les données HS}
+
+\begin{itemize}
+\item \highlight{Modèle de second ordre} : modèle de mesure placé directement au
+  niveau de la corrélation entre les facteurs spécifiques : les facteurs sont
+  corrélés car ils \enquote{partagent une cause commune}. L'effet facteur
+  primaire est appelé effet indirect.
+\item \highlight{Modèle bifactoriel} : tous les items sont associés à un même
+  facteur général, et ce modèle inclut des facteurs spécifiques orthogonaux,
+  appelés facteurs communs, qui résument la variance non expliquée par le
+  facteur général \autocite{reise10}.
+\end{itemize}
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Modèle de second ordre}
+
+\begin{alltt}
+m3 <- 'Visual =~ visual + cubes + paper
+       Verbal =~ paragrap + sentence + wordm
+       Speed  =~ addition + counting + straight
+       F =~ Visual + Verbal + Speed'
+\end{alltt}
+
+{\centering \includegraphics[width=.5\textwidth]{figs/m4.eps}\par}
 
 
 % ---------------------------------------------------------------Slide-
