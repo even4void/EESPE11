@@ -105,7 +105,7 @@ Proportion Var 0.37
 \item Sélection des variables à inclure : analyse d'items ou hypothèses \emph{a
     priori}
 \item Sélection du nombre de facteurs : méthode exploratoire, hypothèses \emph{a
-    priori}, analyse parallèle
+    priori}, analyse parallèle \autocite{humphreys75}
 \item Type de rotation : en fonction des hypothèses théoriques
 \item Méthode d'estimation (OLS, ML, WLS et PA)
 \item Matrice de corrélation (Pearson, tétra- ou polychorique)  
@@ -142,12 +142,15 @@ fa.parallel(d, fm = "pa", fa = "fa", main = "")
 
 
 % ---------------------------------------------------------------Slide-
-\foilhead{Analyse exploratoire et confirmatoire (CFA)}
+\foilhead{Analyse exploratoire et confirmatoire (CFA)\autocite{Jackson2009,hu99}}
 
+\begin{minipage}{0.45\textwidth}
 La CFA revient à imposer une structure particulière, c.a.d. à contraindre certains
 paramètres du modèle, et à tester l'adéquation du modèle avec les données.
-
-{\centering \includegraphics[width=.4\textwidth]{figs/cfa.eps}\par}
+\end{minipage}\hfill
+\begin{minipage}{0.5\textwidth}
+\centerline{\includegraphics[scale=.5]{./figs/cfa.eps}}
+\end{minipage}
 
 
 % ---------------------------------------------------------------Slide-
@@ -313,6 +316,18 @@ m3 <- 'Visual =~ visual + cubes + paper
 \end{alltt}
 
 {\centering \includegraphics[width=.5\textwidth]{figs/m4.eps}\par}
+
+% ---------------------------------------------------------------Slide-
+\foilhead{Applications}
+
+\begin{enumerate}
+\item Refaire l'analyse CFA séparément dans les deux groupes définis par la
+  variable \texttt{school} et comparer les charges factorielles entre les deux
+  échantillons.
+\item À partir des données \texttt{HADS.RData} \autocite{bartolucci16}, réaliser
+  une analyse d'items et vérifier la dimensionnalité de l'échelle.
+\item Estimer les paramètres d'un modèle CFA en traits corrélés et non corrélés. 
+\end{enumerate}
 
 
 % ---------------------------------------------------------------Slide-
